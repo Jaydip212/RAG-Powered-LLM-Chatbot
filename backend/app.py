@@ -268,9 +268,14 @@ def internal_error(e):
 
 if __name__ == "__main__":
     port = int(os.environ.get("FLASK_PORT", 5000))
+    # Disable symlinks warning from huggingface_hub on Windows
+    os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
     print("=" * 60)
     print("  RAG Chatbot Backend Starting...")
     print(f"  Server: http://localhost:{port}")
     print(f"  Uploads: {os.path.abspath(UPLOAD_FOLDER)}")
     print("=" * 60)
-    app.run(debug=True, host="0.0.0.0", port=port)
+    # use_reloader=False prevents watchdog from restarting server
+    # during huggingface model download (which caused upload to crash)
+    app.run(debug=False, host="0.0.0.0", port=port, use_reloader=False, threaded=True)
+

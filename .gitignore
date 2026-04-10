@@ -1,0 +1,57 @@
+# ============================================================
+#  RAG Powered LLM Chatbot — .gitignore
+# ============================================================
+
+# ── API Keys & Secrets (NEVER commit these!) ─────────────────
+backend/.env
+.env
+*.env
+
+# ── Python ───────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.Python
+env/
+venv/
+.venv/
+pip-wheel-metadata/
+
+# ── ChromaDB Vector Database (auto-generated) ────────────────
+backend/chroma_db/
+chroma_db/
+
+# ── Uploaded Files (user data) ───────────────────────────────
+backend/uploads/
+uploads/
+
+# ── HuggingFace Model Cache ──────────────────────────────────
+.cache/
+backend/.cache/
+
+# ── Test Files ───────────────────────────────────────────────
+backend/test_doc.txt
+backend/netsec_test.txt
+backend/*.txt
+
+# ── Node.js / Frontend ───────────────────────────────────────
+frontend/node_modules/
+node_modules/
+frontend/dist/
+frontend/.vite/
+*.log
+npm-debug.log*
+
+# ── VS Code (optional — keep settings, ignore workspace) ─────
+.vscode/*.code-workspace
+
+# ── OS Files ─────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini

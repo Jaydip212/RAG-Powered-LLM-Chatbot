@@ -1,6 +1,6 @@
 """
 llm_handler.py
-Interfaces with Google Gemini 1.5 Flash API.
+Interfaces with Google Gemini 2.0 Flash API.
 Builds the RAG prompt and returns structured answers with sources.
 """
 
@@ -71,7 +71,7 @@ def get_answer(question: str, context_chunks: List[Dict[str, Any]]) -> str:
 
     try:
         model = genai.GenerativeModel(
-            model_name="gemini-1.5-flash",
+            model_name="gemini-flash-latest",
             generation_config={
                 "temperature": 0.2,        # Low temp for factual answers
                 "max_output_tokens": 1024,
